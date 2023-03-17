@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../../vendor/font/Roboto-Regular.ttf') format('truetype');
+}
+
+*{
+    margin:0px; 
+    padding:0px;
+    border: 0; 
+    font-family:'Roboto', sans-serif;
+}
+
+:root{
+    --primaria: #1E1E1E;
+    --secundaria: #007AFF;
+    --destaque: #FF9500 ;
+    --fundo: #2C2C2E;
+    --texto: #FFFFFF;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+
+    background-color: var(--fundo);
+    color:var(--texto);
+}
