@@ -6,15 +6,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" href="./assets/css/index.css"/>
-    
+
 	<title>Send File</title>
 </head>
 <body>
-	
-    Oi, test
+    <main>
 
+        <form action="#" method="post">
 
+            <fieldset> 
+                <legend>Detalhes:</legend>
+                <label>
+                    <input type="email" disabled placeholder="De">
+                </label>
+                <label>
+                    <input type="email" placeholder="Para">
+                </label>
+                <label>
+                    <input type="text" placeholder="Assunto">
+                </label>
+                <label>
+                    <textarea placeholder="Escrever e-mail"></textarea>
+                </label>
+            </fieldset>
 
+            <fieldset>
+                <label for="myfile">Select a file:</label>
+                <input type="file" id="myfile" name="myfile">
+            </fieldset>
 
+            <button type="submit">Enviar</button>
+            
+        </form>
+
+    </main>
 </body>
 </html>
