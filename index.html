@@ -1,44 +1,85 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-	<meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-    <link rel="stylesheet" href="./assets/css/index.css"/>
+        <link rel="stylesheet" href="./assets/css/index.css" />
 
-	<title>Send File</title>
-</head>
-<body>
-    <main>
+        <title>Send File</title>
+    </head>
+    <body>
+        <main>
+            <section>
+                <h4>Send Mail</h4>
+                <p>
+                    Envie seus emails facilmente sem conectar seu gmail no
+                    desktop.
+                </p>
+            </section>
 
-        <form action="#" method="post">
+            <form action="./assets/pages/sendMail.php" method="post">
+                <fieldset>
+                    <div class="wrapper-input">
+                        <label for="emailApp">De</label>
+                        <input
+                            onkeyup="filter()"
+                            type="email"
+                            disabled
+                            placeholder="emailApp"
+                        />
+                    </div>
 
-            <fieldset> 
-                <legend>Detalhes:</legend>
-                <label>
-                    <input type="email" disabled placeholder="De">
-                </label>
-                <label>
-                    <input type="email" placeholder="Para">
-                </label>
-                <label>
-                    <input type="text" placeholder="Assunto">
-                </label>
-                <label>
-                    <textarea placeholder="Escrever e-mail"></textarea>
-                </label>
-            </fieldset>
+                    <div class="wrapper-input">
+                        <label for="emailUser">Para</label>
+                        <input
+                            onkeyup="filter()"
+                            type="email"
+                            placeholder="Para"
+                            name="emailUser"
+                            id="emailUser"
+                        />
+                    </div>
 
-            <fieldset>
-                <label for="myfile">Select a file:</label>
-                <input type="file" id="myfile" name="myfile">
-            </fieldset>
+                    <div class="wrapper-input">
+                        <label for="topic">Assunto</label>
+                        <input
+                            onkeyup="filter()"
+                            type="text"
+                            placeholder="Assunto"
+                            name="topic"
+                            id="topic"
+                        />
+                    </div>
 
-            <button type="submit">Enviar</button>
-            
-        </form>
+                    <div class="wrapper-input">
+                        <input
+                            onkeyup="filter()"
+                            type="file"
+                            id="myfile"
+                            name="myfile"
+                        />
+                    </div>
 
-    </main>
-</body>
+                    <div class="wrapper-input">
+                        <textarea
+                            placeholder="Conteudo"
+                            onkeyup="filter()"
+                            name="content"
+                            id="content"
+                        ></textarea>
+                    </div>
+                </fieldset>
+
+                <p id="error"></p>
+
+                <button type="submit">Enviar</button>
+            </form>
+
+            <article></article>
+        </main>
+
+        <script src="./assets/js/app.js"></script>
+    </body>
 </html>
