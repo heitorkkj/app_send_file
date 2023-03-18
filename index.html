@@ -19,7 +19,7 @@
                 </p>
             </section>
 
-            <form action="./assets/pages/sendMail.php" method="post">
+            <form action="./assets/pages/sendMail.php" method="post"  enctype="multipart/form-data">
                 <fieldset>
                     <div class="wrapper-input">
                         <label for="emailApp">De</label>
@@ -54,6 +54,7 @@
                     </div>
 
                     <div class="wrapper-input">
+                        <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
                         <input
                             onkeyup="filter()"
                             type="file"
