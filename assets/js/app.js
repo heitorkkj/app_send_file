@@ -54,7 +54,10 @@ const filterArray = [
     "seio",
     "peito",
     "tetinha",
+    "gordo",
 ];
+
+let error = document.getElementById("error");
 
 const removeSpecials = (text) => {
     text = text.replace(/[ÀÁÂÃÄÅ]/, "A");
@@ -71,32 +74,54 @@ const removeSpecials = (text) => {
 };
 
 const filter = () => {
-    let inputFor = document.getElementById("emailUser").value;
     let inputTopic = document.getElementById("topic").value;
     let inputContent = document.getElementById("content").value;
-    let error = document.getElementById("error");
+    let btnSubmit = document.getElementById("btnSubmit");
 
-    let inputForValid = true;
     let inputTopicValid = true;
     let inputContentValid = true;
 
-    inputFor = removeSpecials(inputFor);
     inputTopic = removeSpecials(inputTopic);
     inputContent = removeSpecials(inputContent);
 
-    inputForValid = filterArray.indexOf(inputFor) == -1 ? true : false;
-    inputTopicValid = filterArray.indexOf(inputTopic) == -1 ? true : false;
-    inputContentValid = filterArray.indexOf(inputContent) == -1 ? true : false;
+    inputTopic = inputTopic.toLowerCase();
+    inputContent = inputContent.toLowerCase();
 
-    console.log(inputContentValid);
+    inputTopic = inputTopic.trim();
+    inputContent = inputContent.trim();
+
+    inputTopic = inputTopic.split(" ");
+    inputContent = inputContent.split(" ");
+
+    inputTopic.forEach(element => {
+        inputTopicValid = filterArray.indexOf(element) == -1 ? true : false;
+    })
+    inputContent.forEach(element => {
+        inputContentValid = filterArray.indexOf(element) == -1 ? true : false;
+    })
 
     if (
-        inputForValid == false ||
         inputContentValid == false ||
         inputTopicValid == false
     ) {
         error.innerHTML = `Por favor, não digite palavras deste viés`;
+        btnSubmit.disabled = true;
     } else {
         error.innerHTML = "";
+        btnSubmit.disabled = false;
     }
 };
+
+//tratando erros vindos do php causado pelo usuarios
+url = window.location.href;
+url = url.split('?');
+
+if(url[1] == 'emptyFields'){
+    error.innerHTML = `Por favor, complete todos os campos!`;
+}else if(url[1] == 'incompatibleFile'){
+    error.innerHTML = `Tipo de arquivo não permitido!`;
+}else if(url[1] == 'sendFileError'){
+    error.innerHTML = `Erro ao enviar, tente de novo!`;
+}else if(url[1] == 'sendFileSuccess'){
+    error.innerHTML = `Email enviado com sucesso!`;
+}

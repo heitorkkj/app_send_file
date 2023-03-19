@@ -143,12 +143,18 @@ button[type="submit"] {
     color: var(--colorText);
     letter-spacing: 0.1em;
     font-weight: 300;
+    cursor: pointer;
 
     transition: all 0.4s;
 }
 
 button[type="submit"]:hover {
     background: rgba(90, 35, 123, 1);
+}
+
+button[type="submit"]:disabled {
+    background: rgba(90, 35, 123, 0.2);
+    cursor: default;
 }
 
 article {
