@@ -27,7 +27,7 @@
     //Content
     $mail->isHTML(true);                           
     $mail->Subject = $_POST['topic'];
-    $mail->Body    = $_POST['content'].
+    $mail->Body    = $_POST['content'] .
     '<br /><br />
     <footer>
         <i>Está é uma web aplicação destinada a envio de emails de forma 
