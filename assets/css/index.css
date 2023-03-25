@@ -153,7 +153,7 @@ button[type="submit"]:hover {
 }
 
 button[type="submit"]:disabled {
-    background: rgba(90, 35, 123, 0.2);
+    background: rgb(219, 195, 166, 0.2);
     cursor: default;
 }
 
