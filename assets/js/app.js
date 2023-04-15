@@ -57,7 +57,7 @@ const filterArray = [
     "gordo",
 ];
 
-let error = document.getElementById("error");
+const error = document.getElementById("error");
 
 const removeSpecials = (text) => {
     text = text.replace(/[ÀÁÂÃÄÅ]/, "A");
@@ -112,15 +112,65 @@ const filter = () => {
     }
 };
 
+//tratativa de inputs vazios 
+const completedFields = () =>{
+    const inputTopic = document.getElementById("topic").value;
+    const inputContent = document.getElementById("myfile");
+    const inputEmail = document.getElementById("emailUser").value;
+
+    error.innerHTML = '';
+
+    const isValid = {
+        email: false,
+        content: false,
+        topic: false,
+        file: true
+    };
+
+    let validFile = inputContent.value; 
+    validFile = validFile.split('.');
+    if(validFile[validFile.length -1] == 'exe'){
+        error.innerHTML = 'Arquivo inválido';
+        isValid.file = false;
+    } 
+
+    isValid.topic = inputTopic != '' ? true : false; 
+    isValid.content = inputContent != '' ? true : false; 
+    isValid.email = inputEmail != '' ? true : false; 
+
+    for(const element in isValid){
+        if(isValid[element] == false && isValid.file == true){
+            error.innerHTML = 'Por favor! Complete todos os campos';
+            return false;
+        }else if(isValid[element] == true && isValid.file == false){
+            error.innerHTML = 'Arquivo inválido';
+            return false;
+        }
+    }
+}
+
+const input = document.getElementById("myfile");
+
+input.addEventListener("change", () => {
+    const files = input.files;
+    const maxFileSize = 26214400; // 25 MB em bytes
+  
+    for (let i = 0; i < files.length; i++) {
+      const file = files[i];
+      if (file.size > maxFileSize) {
+        alert(`O arquivo ${file.name} é maior que 25 MB e não pode ser enviado.`);
+        input.value = "";
+        return;
+      }
+    }
+});
+
+
 //tratando erros vindos do php causado pelo usuarios
 url = window.location.href;
 url = url.split('?');
 
-if(url[1] == 'emptyFields'){
-    error.innerHTML = `Por favor, complete todos os campos!`;
-}else if(url[1] == 'incompatibleFile'){
-    error.innerHTML = `Tipo de arquivo não permitido!`;
-}else if(url[1] == 'sendFileError'){
+if(url[1] == 'sendFileError'){
     error.innerHTML = `Erro ao enviar, tente de novo!`;
 }else if(url[1] == 'sendFileSuccess'){
     error.innerHTML = `Email enviado com sucesso!`;

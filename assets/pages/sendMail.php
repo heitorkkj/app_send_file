@@ -1,28 +1,23 @@
 <?php 
-
-    if(empty($_POST['emailUser'] || empty($_POST['topic'])) || empty($_POST['content']) || empty($_FILES['myfile'])){
-        header('Location: ../../index.html?emptyFields');
-    }
+    require './phpMailer.php';
 
     //doing upload file
-    $file = $_FILES['myfile'];
+    $arquivos = $_FILES['myfile'];
 
-    //parting the type name
-    $newFile = explode('.', $file['name']);
 
-    //Checking type file
-    if($newFile[sizeOf($newFile)-1] == 'exe'){
-        die(header('Location: ../../index.html?incompatibleFile')); 
+    foreach($arquivos['name'] as $indice => $nome) {
+        $tipo = $arquivos['type'][$indice];
+        $tamanho = $arquivos['size'][$indice];
+        $caminho_temporario = $arquivos['tmp_name'][$indice];
+
+        //Attachments of email
+        $mail->addAttachment($caminho_temporario, $nome);
     }
 
-    
-    require './phpMailer.php';
     //Email config 
     $mail->setFrom('app.send.file@gmail.com', 'Send File');
     $mail->addAddress($_POST['emailUser']); 
 
-    //Attachments
-    $mail->addAttachment($file['tmp_name'], $file['name']);
 
     //Content
     $mail->isHTML(true);                           
