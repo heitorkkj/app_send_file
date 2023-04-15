@@ -76,22 +76,28 @@ const removeSpecials = (text) => {
 const filter = () => {
     let inputTopic = document.getElementById("topic").value;
     let inputContent = document.getElementById("content").value;
+    let inputName = document.getElementById("nome").value;
     let btnSubmit = document.getElementById("btnSubmit");
 
     let inputTopicValid = true;
     let inputContentValid = true;
+    let inputNameValid = true;
 
     inputTopic = removeSpecials(inputTopic);
     inputContent = removeSpecials(inputContent);
+    inputName = removeSpecials(inputName);
 
     inputTopic = inputTopic.toLowerCase();
     inputContent = inputContent.toLowerCase();
+    inputName = inputName.toLowerCase();
 
     inputTopic = inputTopic.trim();
     inputContent = inputContent.trim();
+    inputName = inputName.trim();
 
     inputTopic = inputTopic.split(" ");
     inputContent = inputContent.split(" ");
+    inputName = inputName.split(" ");
 
     inputTopic.forEach(element => {
         inputTopicValid = filterArray.indexOf(element) == -1 ? true : false;
@@ -99,10 +105,14 @@ const filter = () => {
     inputContent.forEach(element => {
         inputContentValid = filterArray.indexOf(element) == -1 ? true : false;
     })
+    inputName.forEach(element => {
+        inputNameValid = filterArray.indexOf(element) == -1 ? true : false;
+    })
 
     if (
         inputContentValid == false ||
-        inputTopicValid == false
+        inputTopicValid == false ||
+        inputNameValid == false
     ) {
         error.innerHTML = `Por favor, não digite palavras deste viés`;
         btnSubmit.disabled = true;

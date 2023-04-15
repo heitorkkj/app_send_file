@@ -2,13 +2,12 @@
     require './phpMailer.php';
 
     //doing upload file
-    $arquivos = $_FILES['myfile'];
+    $_FILES = $_FILES['myfile'];
 
-
-    foreach($arquivos['name'] as $indice => $nome) {
-        $tipo = $arquivos['type'][$indice];
-        $tamanho = $arquivos['size'][$indice];
-        $caminho_temporario = $arquivos['tmp_name'][$indice];
+    foreach($_FILES['name'] as $indice => $nome) {
+        $tipo = $_FILES['type'][$indice];
+        $tamanho = $_FILES['size'][$indice];
+        $caminho_temporario = $_FILES['tmp_name'][$indice];
 
         //Attachments of email
         $mail->addAttachment($caminho_temporario, $nome);
@@ -22,7 +21,7 @@
     //Content
     $mail->isHTML(true);                           
     $mail->Subject = $_POST['topic'];
-    $mail->Body    = $_POST['content'] .
+    $mail->Body    = $_POST['name'].'<br />'.$_POST['content'] .
     '<br /><br />
     <footer>
         <i>Está é uma web aplicação destinada a envio de emails de forma 
