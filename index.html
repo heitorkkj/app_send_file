@@ -12,86 +12,69 @@
     </head>
     <body>
         <main>
-            <section>
-                <h4>Send File</h4>
-                <p>
-                    Envie seus arquivos pro email facilmente sem conectar seu gmail no
-                    desktop.
-                </p>
-            </section>
-
             <form onsubmit="return completedFields()" action="./assets/pages/sendMail.php" method="post"  enctype="multipart/form-data">
-                <fieldset>
-                    <div class="wrapper-input">
-                        <label for="emailApp">De</label>
-                        <input
-                            onkeyup="filter()"
-                            type="email"
-                            disabled
-                            placeholder="app.send.file@gmail.com"
-                        />
-                    </div>
 
-                    <div class="wrapper-input">
-                        <label for="emailUser">Para</label>
-                        <input
-                            onkeyup="filter()"
-                            type="email"
-                            placeholder="Para"
-                            name="emailUser"
-                            id="emailUser"
-                        />
-                    </div>
+                <section class="area-title">
+                    <h1>SENDFILE</h1>
+                    <p>
+                       Send your emails easily here ;)
+                    </p>
+                    <img src="/assets/image/imgHeader.svg">
+                </section>
 
-                    <div class="wrapper-input">
-                        <label for="topic">Nome</label>
-                        <input
-                            onkeyup="filter()"
-                            type="text"
-                            placeholder="Nome"
-                            name="name"
-                            id="nome"
-                        />
-                    </div>
+                <fieldset class="area-form" id="form">
+                    <article class="form-control">
+                        <div class="wrapper-input">
+                            <input
+                                type="email"
+                                placeholder="De: app.send.file@gmail.com"
+                            />
+                        </div>
+                        <div class="wrapper-input">
+                            <input
+                                onkeyup="filter()"
+                                type="email"
+                                placeholder="Para"
+                                name="emailUser"
+                                id="emailUser"
+                            />
+                        </div>
 
-                    <div class="wrapper-input">
-                        <label for="topic">Assunto</label>
-                        <input
-                            onkeyup="filter()"
-                            type="text"
-                            placeholder="Assunto"
-                            name="topic"
-                            id="topic"
-                        />
-                    </div>
+                        <div class="wrapper-input">
+                            <input
+                                onkeyup="filter()"
+                                type="text"
+                                placeholder="Assunto"
+                                name="topic"
+                                id="topic"
+                            />
+                        </div>
 
-                    <div class="wrapper-input">
-                        <input type="hidden" name="MAX_FILE_SIZE" value="26214400" />
-                        <input
-                            type="file"
-                            id="myfile"
-                            name="myfile[]"
-                            size="26214400"
-                            multiple
-                        />
-                    </div>
+                        <div class="wrapper-input">
+                            <input type="hidden" name="MAX_FILE_SIZE" value="26214400" />
+                            <input
+                                type="file"
+                                id="myfile"
+                                name="myfile[]"
+                                size="26214400"
+                                multiple
+                            />
+                        </div>
 
-                    <div class="wrapper-input">
-                        <textarea
-                            placeholder="Conteudo"
-                            onkeyup="filter()"
-                            name="content"
-                            id="content"
-                        ></textarea>
-                    </div>
+                        <div class="wrapper-input">
+                            <textarea
+                                placeholder="Conteudo"
+                                onkeyup="filter()"
+                                name="content"
+                                id="content"
+                            ></textarea>
+                        </div>
+                    </article>
+                    
+                    <p id="error"></p>  
                 </fieldset>
-
-                <p id="error"></p>
-
-                <button type="submit" id="btnSubmit">Enviar</button>
+                
             </form>
-
-            <article></article>
         </main>
 
         <script src="./assets/js/app.js"></script>
