@@ -57,6 +57,25 @@ const filterArray = [
     "gordo",
 ];
 
+const inputFile = document.getElementById("myfile");
+const btnFile = document.getElementById("btn-custom");
+
+btnFile.addEventListener('click', ()=>{
+    inputFile.click();
+});
+
+inputFile.addEventListener('change', ()=>{
+    const files = inputFile.files;
+    const selectedFiles = document.getElementById("selected-files");
+    const areaFiles = document.getElementById("area-files");
+
+    selectedFiles.style.display = 'flex';
+
+    for(let i=0; i < files.length; i++){
+        areaFiles.innerHTML += `<li>${files[i].name}</li>`;
+    }
+});
+
 const error = document.getElementById("error");
 
 const removeSpecials = (text) => {
@@ -172,7 +191,7 @@ const loadButton = ()=>{
     const button = document.createElement("button");
     button.type = "submit";
     button.id = "btnSubmit";
-    button.innerHTML = "Enviar";
+    button.innerHTML = '<i class="bi bi-cloud-arrow-up"></i> Enviar';
 
     form.insertAdjacentElement('beforeend', button)
 }
@@ -187,5 +206,5 @@ url = url.split('?');
 if(url[1] == 'sendFileError'){
     error.innerHTML = `Erro ao enviar, tente de novo!`;
 }else if(url[1] == 'sendFileSuccess'){
-    error.innerHTML = `Email enviado com sucesso!`;
+    error.innerHTML = `<i class="bi bi-cloud-check"></i> Email enviado com sucesso!`;
 }
