@@ -16,6 +16,7 @@
     //Email config 
     $mail->setFrom('app.send.file@gmail.com', 'Send File');
     $mail->addAddress($_POST['emailUser']); 
+    $mail->addReplyTo($_POST['responseEmail']);
 
 
     //Content
@@ -30,6 +31,7 @@
     $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
     $status = $mail->send();
+    
 
     if($status == 1){
         header('Location:../../index.html?sendFileSuccess');

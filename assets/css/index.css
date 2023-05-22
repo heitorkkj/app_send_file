@@ -265,8 +265,9 @@ p#error {
 
 @media (max-width: 600px) {
     main{
-        background-color: #FFF;
+        background-color: var(--colorMain);
     }
+    
     form{
         width:100%;
         height:100%;
@@ -279,8 +280,9 @@ p#error {
     section.area-title{
         width:100%;
         height:15%;
+        margin-left:0;
 
-        background-color: var(--colorForm);
+        background-color: var(--colorArticle);
         border-radius:0;
         padding:0;
         border-radius:0 0 0 30px;
@@ -294,7 +296,7 @@ p#error {
         position:absolute;
         top:30px;
         right:0;
-        background-color: var(--colorForm);
+        background-color: var(--colorArticle);
     }
 
     section.area-title img{
