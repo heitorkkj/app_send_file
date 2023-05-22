@@ -137,6 +137,7 @@ const completedFields = () =>{
     const inputTopic = document.getElementById("topic").value;
     const inputContent = document.getElementById("myfile");
     const inputEmail = document.getElementById("emailUser").value;
+    const inputResponse = document.getElementById("responseEmail").value;
 
     error.innerHTML = '';
 
@@ -144,7 +145,8 @@ const completedFields = () =>{
         email: false,
         content: false,
         topic: false,
-        file: true
+        file: true,
+        responseEmail:false
     };
 
     let validFile = inputContent.value; 
@@ -157,6 +159,7 @@ const completedFields = () =>{
     isValid.topic = inputTopic != '' ? true : false; 
     isValid.content = inputContent != '' ? true : false; 
     isValid.email = inputEmail != '' ? true : false; 
+    isValid.responseEmail = inputResponse != '' ? true : false; 
 
     for(const element in isValid){
         if(isValid[element] == false && isValid.file == true){

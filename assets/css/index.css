@@ -1,6 +1,6 @@
 @font-face {
-    font-family: "Roboto";
-    src: url("../../vendor/font/Roboto-Regular.ttf") format("truetype");
+    font-family: "Montserrat";
+    src: url("../../vendor/font/static/Montserrat-Regular.ttf") format("truetype");
 }
 
 * {
@@ -8,21 +8,17 @@
     padding: 0px;
     border: 0;
     outline: 0;
-    font-family: "Roboto", sans-serif;
+    font-family: "Montserrat";
 
     scroll-behavior: smooth;
 }
 
 :root {
-    --colorPrimary: #1e1e1e;
-    --colorSecondary: #007aff;
-    --colorHighlight: #ff9500;
-    --colorBackground: #262427;
-    --colorLabel: #66FCF1;
-    --colorText: #ffffff;
+    --colorText: #F8F9FA;
     --colorForm: #fff;
-    --colorForm:#7A00F6;
-    --colorMain:#7b00f612;
+    --colorForm:#fff;
+    --colorMain:#F8F9FA;
+    --colorArticle:#023E8A;
 }
 
 main {
@@ -33,7 +29,7 @@ main {
     align-items: center;
     justify-content: center;
 
-    background-color:#7b00f612;
+    background-color:var(--colorMain);
 }
 
 
@@ -48,25 +44,34 @@ form {
     color: var(--colorText);
     background-color:var(--colorForm);
     color: var(--colorPrimary);
-    border-radius: 15px;
+    border-radius: 10px;
+
+    -webkit-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.139);
+    -moz-box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.139);
+    box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.139);
 }
 
 
 section.area-title {
-    width: 45%;
-    height: 100%;
+    width: 46%;
+    height: 98%;
+    margin-left:5px;
     
     display: flex;
     flex-direction: column;
     align-items: center;
 
     font-size: 0.8em;
-    color: white;
-    border-radius: 15px 0 0 15px;
+    color: var(--colorText);
+    border-radius: 5px;
+
+    background-color:var(--colorArticle);
 }
 
 section.area-title h1{
     font-size: 3.5rem;
+    font-weight: 200;
+    letter-spacing: 0.1rem;
 }
 
 section.area-title p{
@@ -79,24 +84,21 @@ section.area-title img{
     object-fit: fill;
     padding: 10px;
 
-    background-color: rgba(255, 255, 255, 0.115);
-    border-radius:3px 30px 3px 30px;
-
     position: absolute;
     bottom:10%;
 }
 
 fieldset.area-form {
     width:50%;
-    height: 98%;
-    margin-left:4%;
+    height: 100%;
+    margin-left:3%;
 
     display: flex;
     flex-direction: column;
     align-items: center;
 
-    background-color:#fff;
-    border-radius:15px;
+    background-color:var(--colorForm);
+    border-radius:0 10px 10px 0;
 }
 
 article.form-control{
@@ -148,7 +150,7 @@ button#btn-custom{
     font-size: 1rem;
     line-height: 1.5;
     color: #495057;
-    background-color: #fff;
+    background-color: #f0f0f0;
     background-clip: padding-box;
     border: 1px solid #ced4da;
     border-radius: 0.30rem;
@@ -229,7 +231,7 @@ button[type="submit"] {
     border-radius: 10px;
     margin-bottom: 5px;
 
-    background-color:var(--colorForm);
+    background-color:var(--colorArticle);
     color: #FFF;
     letter-spacing: 0.1em;
     font-weight: 400;

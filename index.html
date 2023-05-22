@@ -16,11 +16,11 @@
             <form onsubmit="return completedFields()" action="./assets/pages/sendMail.php" method="post"  enctype="multipart/form-data">
 
                 <section class="area-title">
-                    <h1>SENDFILE</h1>
+                    <h1>SendFile</h1>
                     <p>
-                       Send your emails easily here ;)
+                        Envie seus emails de maneira simples ;)
                     </p>
-                    <img src="/assets/image/imgHeader.svg">
+                    <img src="./assets/image/imgHeader.svg">
                 </section>
 
                 <fieldset class="area-form" id="form">
@@ -29,15 +29,23 @@
                             <input
                                 type="email"
                                 placeholder="De: app.send.file@gmail.com"
+                                disabled
                             />
                         </div>
                         <div class="wrapper-input">
                             <input
-                                onkeyup="filter()"
                                 type="email"
                                 placeholder="Para"
                                 name="emailUser"
                                 id="emailUser"
+                            />
+                        </div>
+                        <div class="wrapper-input">
+                            <input
+                                type="email"
+                                placeholder="Email de resposta"
+                                name="responseEmail"
+                                id="responseEmail"
                             />
                         </div>
 
