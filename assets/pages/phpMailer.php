@@ -16,7 +16,7 @@
     $mail->Host       = 'smtp.gmail.com';                    
     $mail->SMTPAuth   = true;                                   
     $mail->Username   = 'app.send.file@gmail.com';                     
-    $mail->Password   = 'afjjtwtwkxwqecpz';                               
+    $mail->Password   = 'bixgkptclqsuykxt';                               
     $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;           
     $mail->Port       = 465;    
 ?>
